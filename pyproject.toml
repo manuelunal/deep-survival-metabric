@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deep_survival"
+version = "0.1.0"
+description = "Análisis de supervivencia en cáncer de mama (METABRIC): DeepSurv y DeepHit vs. Cox"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "torch",
+    "pycox",
+    "lifelines",
+    "matplotlib",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

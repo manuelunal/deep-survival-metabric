@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Archivos generados por pip install -e .
+*.egg-info/
+build/
+dist/
+
+# Datos y modelos entrenados
+data/
+models/
+*.pt
+*.pth
+*.h5
+*.keras
+*.pkl
+
+# Sistema
+.DS_Store
+Thumbs.db
