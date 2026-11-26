@@ -1,3 +1,4 @@
+cat > .gitignore << 'EOF'
 # Python
 __pycache__/
 *.pyc
@@ -10,15 +11,20 @@ venv/
 build/
 dist/
 
-# Datos y modelos entrenados
-data/
-models/
+# Datos y modelos entrenados (solo los de la raíz del repo)
+/data/
+/models/
 *.pt
 *.pth
 *.h5
 *.keras
 *.pkl
 
+# Credenciales
+*.env
+kaggle.json
+
 # Sistema
 .DS_Store
 Thumbs.db
+EOF
