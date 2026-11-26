@@ -4,6 +4,7 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+.vscode/
 .ipynb_checkpoints/
 
 # Archivos generados por pip install -e .
