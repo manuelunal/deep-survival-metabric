@@ -21,6 +21,54 @@ El objetivo principal del proyecto es desarrollar y comparar modelos de análisi
 - El proyecto no constituye una herramienta de diagnóstico ni de apoyo a decisiones clínicas y no reemplaza el criterio médico. Tampoco incluye validación clínica prospectiva ni validación con cohortes externas.
 - El alcance se limita a la cohorte METABRIC. Quedan por fuera otros tipos de cáncer, el uso de imágenes (histopatología o mamografía), el análisis de riesgos competitivos y la inferencia causal sobre el efecto de los tratamientos.
 
+## Metodología
+
+El proyecto seguirá una **metodología experimental de aprendizaje supervisado**, organizada en cinco fases que permiten desarrollar y comparar modelos de análisis de supervivencia utilizando la cohorte METABRIC.
+
+1. **Comprensión del problema:** definir el objetivo de predicción de supervivencia en pacientes con cáncer de mama, identificando las variables clínicas y moleculares, el tiempo de seguimiento y el evento de interés (fallecimiento).
+
+2. **Exploración y preparación de datos:** realizar un análisis exploratorio mediante estadísticas descriptivas, curvas de Kaplan-Meier y pruebas log-rank. Posteriormente, tratar los valores faltantes, seleccionar variables, codificar categorías y estandarizar los predictores, conservando la información de las observaciones censuradas.
+
+3. **Partición del conjunto de datos:** utilizar una estrategia *hold-out* estratificada por el indicador de evento, distribuyendo los datos en **70 % para entrenamiento, 15 % para validación y 15 % para prueba**. Las transformaciones se ajustarán exclusivamente con el conjunto de entrenamiento para evitar fuga de información.
+
+4. **Implementación y entrenamiento:** desarrollar tres modelos mediante Python y TensorFlow/Keras: **Cox**, como referencia estadística; **DeepSurv**, para capturar relaciones no lineales; y **DeepHit**, para modelar la distribución temporal del evento. Se emplearán regularización y técnicas de parada temprana (*early stopping*) para controlar el sobreajuste.
+
+5. **Evaluación y comparación:** evaluar los modelos utilizando el **índice de concordancia (C-index)** y el **Integrated Brier Score (IBS)**, considerando adecuadamente las observaciones censuradas. Se compararán sus resultados sobre el mismo conjunto de prueba para determinar si los modelos de aprendizaje profundo presentan mejoras frente a Cox.
+
+Finalmente, se documentarán los resultados, las limitaciones metodológicas y las conclusiones, garantizando la reproducibilidad del experimento mediante notebooks y control de versiones en GitHub.
+
+## Cronograma
+
+El proyecto se desarrollará mediante **cuatro entregas semanales**, programadas para los jueves, entre el **26 de noviembre y el 17 de diciembre de 2026**. Las actividades seguirán una secuencia de comprensión del problema, preparación de datos, modelamiento y evaluación, utilizando la metodología definida anteriormente.
+
+| Etapa | Duración estimada | Fecha de entrega | Entregable |
+|---|---|---|---|
+| **1. Entendimiento del negocio y planificación** | Hito inicial | 26 de noviembre de 2026 | Project Charter: objetivo, alcance, metodología, cronograma y organización del proyecto en GitHub. |
+| **2. Exploración y preprocesamiento de datos** | 1 semana | 3 de diciembre de 2026 | Análisis exploratorio de METABRIC, estudio de censura, Kaplan-Meier, log-rank, tratamiento de valores faltantes y preparación de datos. |
+| **3. Modelamiento e implementación experimental** | 1 semana | 10 de diciembre de 2026 | Implementación y entrenamiento de Cox, DeepSurv y DeepHit, incluyendo las arquitecturas, funciones de pérdida y estrategias de validación. |
+| **4. Evaluación, documentación y entrega final** | 1 semana | 17 de diciembre de 2026 | Comparación mediante C-index e IBS, análisis de curvas de supervivencia, conclusiones, limitaciones y consolidación del repositorio. |
+
+**Consideraciones:**
+
+- Las entregas se realizarán cada jueves, conforme al cronograma académico previsto.
+- Las actividades de cada etapa se documentarán mediante notebooks, archivos Markdown y control de versiones en GitHub.
+- El proyecto tendrá un alcance experimental y académico; no se contempla el despliegue de modelos en un entorno clínico de producción.
+
+## Equipo del Proyecto
+
+El proyecto será desarrollado por un equipo de tres integrantes de la **Universidad Nacional de Colombia**, bajo un esquema de trabajo colaborativo y responsabilidades compartidas.
+
+| Integrante | Rol | Responsabilidades |
+|---|---|---|
+| **Juan David Bonilla Sotelo** | Investigador del proyecto | Desarrollo integral del proyecto. |
+| **Sergio Alejandro Rubiano Bautista** | Investigador del proyecto | Desarrollo integral del proyecto. |
+| **Manuel Esteban Amarillo Giraldo** | Investigador del proyecto | Desarrollo integral del proyecto. |
+
+### Organización del equipo
+
+Los tres integrantes participarán conjuntamente en la planificación, exploración y preparación de datos, implementación de modelos, evaluación de resultados y documentación.
+
+Las decisiones se tomarán de manera colaborativa, utilizando GitHub para el control de versiones y seguimiento de las contribuciones.
 
 ## Presupuesto
 
